@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 #coding: utf-8
 import urllib.request
 from datetime import timezone,timedelta
@@ -7,10 +8,10 @@ import os.path
 #10=a;11=b;12=c
 def month_to_hex(month):
     return {
-        'a': '10',
-        'b': '11',
-        'c': '12',
-    }.get(month, str(month))
+        '10': 'a',
+        '11': 'b',
+        '12': 'c'
+    }.get(str(month), str(month))
 
 
 #1=01 2=02 12=12
@@ -94,6 +95,5 @@ try:
     fetch_temp_map(current_time-timedelta(days=2))
 except Exception as e:
     send_email('dennis15926@gmail.com','RainTempMaps',str(e))  
-
 
     
