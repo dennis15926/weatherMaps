@@ -66,7 +66,7 @@ def send_email(recipient, subject, body):
 #fetches map of "date", which on the server is represented as date+1 eg. 1/8~1/9 represented as 1/9
 def fetch_rain_map(date):
     dl_date = date + timedelta(days=1)
-    file_name = 'hk'+month_to_hex(dl_date.month) + int_to_str(dl_date.day) + '000.jpg'
+    file_name = str(dl_date.year) + '-' + int_to_str(dl_date.month) + '-' + int_to_str(dl_date.day) + '_0000.QZJ.jpg'
     basedir = '/home/pi/weatherMaps/rain_map/'+str(date.year)+'/'+int_to_str(date.month)+'/'
     if not os.path.exists(basedir):
         os.makedirs(basedir)
@@ -94,6 +94,6 @@ try:
     fetch_temp_map(current_time-timedelta(days=1))
     fetch_temp_map(current_time-timedelta(days=2))
 except Exception as e:
-    send_email('dennis15926@gmail.com','RainTempMaps',str(e))  
+    send_email('dennis15926@gmail.com','RainTempMaps',"RainTempMap failed with error: " + str(e))  
 
     
