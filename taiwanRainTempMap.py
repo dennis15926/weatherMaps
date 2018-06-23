@@ -66,6 +66,8 @@ def send_email(recipient, subject, body):
 #fetches map of "date", which on the server is represented as date+1 eg. 1/8~1/9 represented as 1/9
 def fetch_rain_map(date):
     dl_date = date + timedelta(days=1)
+    
+    #2018-06-22_0000.QZJ.jpg
     file_name = str(dl_date.year) + '-' + int_to_str(dl_date.month) + '-' + int_to_str(dl_date.day) + '_0000.QZJ.jpg'
     basedir = '/home/pi/weatherMaps/rain_map/'+str(date.year)+'/'+int_to_str(date.month)+'/'
     if not os.path.exists(basedir):
